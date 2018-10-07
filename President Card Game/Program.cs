@@ -12,16 +12,6 @@ namespace President_Card_Game
 
         static void Main(string[] args)
         {
-            //Credits
-                /*
-                 * Description: A recreation of lunch-time President
-                 * Author: Johnny Cai
-                 * Last Edit: Oct 3, 2018
-                 */
-            //
-            PlayerCards playerCards = new PlayerCards();
-            AICards aiCards = new AICards();
-
             CardInfo cardInfo = new CardInfo();
             CardProcessing cardProcessing = new CardProcessing();
 
@@ -37,7 +27,7 @@ namespace President_Card_Game
 
             bool currentTurnIsPlayer = cardProcessing.StartingTeamDecider(storedCardMemory);
 
-            //Main game
+            //Main
             while (true)
             {
                 /*
@@ -66,94 +56,6 @@ namespace President_Card_Game
                 cardSuit[3] = "Diamonds";
                 cardSuit[4] = "";
                 */
-
-                int referencedCardPos;
-                int referencedCardTarget;
-
-                for (int i = 0; i < 54; i++)
-                {
-                    referencedCardPos = i;
-                    string referencedCardValue = storedCardMemory.Substring(i, 1);
-
-                    if (referencedCardValue == "0")
-                    {
-                        referencedCardTarget = 0;
-                    }
-                    else
-                    {
-                        referencedCardTarget = 1;
-                    }
-
-                    //Code to assign true or falses to each team cards
-
-                    if (referencedCardPos == 0) { if (referencedCardTarget == 0) { playerCards.TwoHearts = true; } else { aiCards.TwoHearts = true; } }
-                    if (referencedCardPos == 1) { if (referencedCardTarget == 0) { playerCards.TwoSpades = true; } else { aiCards.TwoSpades = true; } }
-                    if (referencedCardPos == 2) { if (referencedCardTarget == 0) { playerCards.TwoClubs = true; } else { aiCards.TwoClubs = true; } }
-                    if (referencedCardPos == 3) { if (referencedCardTarget == 0) { playerCards.TwoDiamonds = true; } else { aiCards.TwoDiamonds = true; } }
-
-                    if (referencedCardPos == 4) { if (referencedCardTarget == 0) { playerCards.ThreeHearts = true; } else { aiCards.ThreeHearts = true; } }
-                    if (referencedCardPos == 5) { if (referencedCardTarget == 0) { playerCards.ThreeSpades = true; } else { aiCards.ThreeSpades = true; } }
-                    if (referencedCardPos == 6) { if (referencedCardTarget == 0) { playerCards.ThreeClubs = true; } else { aiCards.ThreeClubs = true; } }
-                    if (referencedCardPos == 7) { if (referencedCardTarget == 0) { playerCards.ThreeDiamonds = true; } else { aiCards.ThreeDiamonds = true; } }
-
-                    if (referencedCardPos == 8) { if (referencedCardTarget == 0) { playerCards.FourHearts = true; } else { aiCards.FourHearts = true; } }
-                    if (referencedCardPos == 9) { if (referencedCardTarget == 0) { playerCards.FourSpades = true; } else { aiCards.FourSpades = true; } }
-                    if (referencedCardPos == 10) { if (referencedCardTarget == 0) { playerCards.FourClubs = true; } else { aiCards.FourClubs = true; } }
-                    if (referencedCardPos == 11) { if (referencedCardTarget == 0) { playerCards.FourDiamonds = true; } else { aiCards.FourDiamonds = true; } }
-
-                    if (referencedCardPos == 12) { if (referencedCardTarget == 0) { playerCards.FiveHearts = true; } else { aiCards.FiveHearts = true; } }
-                    if (referencedCardPos == 13) { if (referencedCardTarget == 0) { playerCards.FiveSpades = true; } else { aiCards.FiveSpades = true; } }
-                    if (referencedCardPos == 14) { if (referencedCardTarget == 0) { playerCards.FiveClubs = true; } else { aiCards.FiveClubs = true; } }
-                    if (referencedCardPos == 15) { if (referencedCardTarget == 0) { playerCards.FiveDiamonds = true; } else { aiCards.FiveDiamonds = true; } }
-
-                    if (referencedCardPos == 16) { if (referencedCardTarget == 0) { playerCards.SixHearts = true; } else { aiCards.SixHearts = true; } }
-                    if (referencedCardPos == 17) { if (referencedCardTarget == 0) { playerCards.SixSpades = true; } else { aiCards.SixSpades = true; } }
-                    if (referencedCardPos == 18) { if (referencedCardTarget == 0) { playerCards.SixClubs = true; } else { aiCards.SixClubs = true; } }
-                    if (referencedCardPos == 19) { if (referencedCardTarget == 0) { playerCards.SixDiamonds = true; } else { aiCards.SixDiamonds = true; } }
-
-                    if (referencedCardPos == 20) { if (referencedCardTarget == 0) { playerCards.SevenHearts = true; } else { aiCards.SevenHearts = true; } }
-                    if (referencedCardPos == 21) { if (referencedCardTarget == 0) { playerCards.SevenSpades = true; } else { aiCards.SevenSpades = true; } }
-                    if (referencedCardPos == 22) { if (referencedCardTarget == 0) { playerCards.SevenClubs = true; } else { aiCards.SevenClubs = true; } }
-                    if (referencedCardPos == 23) { if (referencedCardTarget == 0) { playerCards.SevenDiamonds = true; } else { aiCards.SevenDiamonds = true; } }
-
-                    if (referencedCardPos == 24) { if (referencedCardTarget == 0) { playerCards.EightHearts = true; } else { aiCards.EightHearts = true; } }
-                    if (referencedCardPos == 25) { if (referencedCardTarget == 0) { playerCards.EightSpades = true; } else { aiCards.EightSpades = true; } }
-                    if (referencedCardPos == 26) { if (referencedCardTarget == 0) { playerCards.EightClubs = true; } else { aiCards.EightClubs = true; } }
-                    if (referencedCardPos == 27) { if (referencedCardTarget == 0) { playerCards.EightDiamonds = true; } else { aiCards.EightDiamonds = true; } }
-
-                    if (referencedCardPos == 28) { if (referencedCardTarget == 0) { playerCards.NineHearts = true; } else { aiCards.NineHearts = true; } }
-                    if (referencedCardPos == 29) { if (referencedCardTarget == 0) { playerCards.NineSpades = true; } else { aiCards.NineSpades = true; } }
-                    if (referencedCardPos == 30) { if (referencedCardTarget == 0) { playerCards.NineClubs = true; } else { aiCards.NineClubs = true; } }
-                    if (referencedCardPos == 31) { if (referencedCardTarget == 0) { playerCards.NineDiamonds = true; } else { aiCards.NineDiamonds = true; } }
-
-                    if (referencedCardPos == 32) { if (referencedCardTarget == 0) { playerCards.TenHearts = true; } else { aiCards.TenHearts = true; } }
-                    if (referencedCardPos == 33) { if (referencedCardTarget == 0) { playerCards.TenSpades = true; } else { aiCards.TenSpades = true; } }
-                    if (referencedCardPos == 34) { if (referencedCardTarget == 0) { playerCards.TenClubs = true; } else { aiCards.TenClubs = true; } }
-                    if (referencedCardPos == 35) { if (referencedCardTarget == 0) { playerCards.TenDiamonds = true; } else { aiCards.TenDiamonds = true; } }
-
-                    if (referencedCardPos == 36) { if (referencedCardTarget == 0) { playerCards.JackHearts = true; } else { aiCards.JackHearts = true; } }
-                    if (referencedCardPos == 37) { if (referencedCardTarget == 0) { playerCards.JackSpades = true; } else { aiCards.JackSpades = true; } }
-                    if (referencedCardPos == 38) { if (referencedCardTarget == 0) { playerCards.JackClubs = true; } else { aiCards.JackClubs = true; } }
-                    if (referencedCardPos == 39) { if (referencedCardTarget == 0) { playerCards.JackDiamonds = true; } else { aiCards.JackDiamonds = true; } }
-
-                    if (referencedCardPos == 40) { if (referencedCardTarget == 0) { playerCards.QueenHearts = true; } else { aiCards.QueenHearts = true; } }
-                    if (referencedCardPos == 41) { if (referencedCardTarget == 0) { playerCards.QueenSpades = true; } else { aiCards.QueenSpades = true; } }
-                    if (referencedCardPos == 42) { if (referencedCardTarget == 0) { playerCards.QueenClubs = true; } else { aiCards.QueenClubs = true; } }
-                    if (referencedCardPos == 43) { if (referencedCardTarget == 0) { playerCards.QueenDiamonds = true; } else { aiCards.QueenDiamonds = true; } }
-
-                    if (referencedCardPos == 44) { if (referencedCardTarget == 0) { playerCards.KingHearts = true; } else { aiCards.KingHearts = true; } }
-                    if (referencedCardPos == 45) { if (referencedCardTarget == 0) { playerCards.KingSpades = true; } else { aiCards.KingSpades = true; } }
-                    if (referencedCardPos == 46) { if (referencedCardTarget == 0) { playerCards.KingClubs = true; } else { aiCards.KingClubs = true; } }
-                    if (referencedCardPos == 47) { if (referencedCardTarget == 0) { playerCards.KingDiamonds = true; } else { aiCards.KingDiamonds = true; } }
-
-                    if (referencedCardPos == 48) { if (referencedCardTarget == 0) { playerCards.AceHearts = true; } else { aiCards.AceHearts = true; } }
-                    if (referencedCardPos == 49) { if (referencedCardTarget == 0) { playerCards.AceSpades = true; } else { aiCards.AceSpades = true; } }
-                    if (referencedCardPos == 50) { if (referencedCardTarget == 0) { playerCards.AceClubs = true; } else { aiCards.AceClubs = true; } }
-                    if (referencedCardPos == 51) { if (referencedCardTarget == 0) { playerCards.AceDiamonds = true; } else { aiCards.AceDiamonds = true; } }
-
-                    if (referencedCardPos == 52) { if (referencedCardTarget == 0) { playerCards.JokerOne = true; } else { aiCards.JokerOne = true; } }
-                    if (referencedCardPos == 53) { if (referencedCardTarget == 0) { playerCards.JokerTwo = true; } else { aiCards.JokerTwo = true; } }
-                }
 
                 currentTurnIsPlayer = true;
 
@@ -243,54 +145,75 @@ namespace President_Card_Game
 
                 CardInfo cardInfo = new CardInfo();
 
-                //Print player cards
+                //Print player cards + last turn
                 PrintPlayerCardsToScreen(storedCardMemory);
-
-                //Write last played card + turn
                 PrintLastPlayedCardsToScreen(playerLastCard, aiLastCard, turnNumber);
 
-                Console.WriteLine("##---<<<----------<<< YOUR TURN >>> ---------->>>---##");
+                //Processes card input
+                string newStoredCardMemory = PlayerCardInput(storedCardMemory);
+                storedCardMemory = newStoredCardMemory.Substring(0, 54);
+                string playerHasCards = newStoredCardMemory.Substring(54, newStoredCardMemory.Length - 54);
 
-                //Get player card choice input
-                string playerSelectedCardTypeInput = GetPlayerCardTypeInput();
-                string playerSelectedCardSuitInput = GetPlayerCardSuitInput(playerSelectedCardTypeInput);
+
+                //Breaks while loop
+                if (playerHasCards == "True") playerCardInputHandlerFinishedProcessing = true;
+            }
+
+            return storedCardMemory;
+        }
+
+        private string PlayerCardInput(string storedCardMemory)
+        {
+            CardInfo cardInfo = new CardInfo();
+            string playerSelectedCardTypeInput = "";
+            string playerSelectedCardSuitInput = "";
+
+            string storedPlayerCardInput = "000000000000000000000000000000000000000000000000000000";
+
+
+            bool quit = false;
+            //Get player card choice input
+            while (quit == false)
+            {
+                playerSelectedCardTypeInput = GetPlayerCardTypeInput();
+                playerSelectedCardSuitInput = GetPlayerCardSuitInput(playerSelectedCardTypeInput);
 
                 //14 is used to differentiate between large and small joker, 13 is large, 14 is small. 14 is used here so the method can return one value instead of two
                 if (playerSelectedCardTypeInput == "14") playerSelectedCardTypeInput = "13";
 
-                //Informs player of invalid card input if exist
-                if (playerSelectedCardTypeInput == "000" || playerSelectedCardSuitInput == "000") InformPlayerOfInvalidCards();
-
-                //Verify player has inputed cards
-                bool playerHasCards = false;
-                if (playerSelectedCardTypeInput != "000" && playerSelectedCardSuitInput != "000")
+                if (playerSelectedCardTypeInput == "111")
                 {
-                    playerHasCards = cardInfo.HasCard(storedCardMemory, Int32.Parse(playerSelectedCardTypeInput), Int32.Parse(playerSelectedCardSuitInput), true);
+                    quit = true;
                 }
-                //Removes card if player has inputed card
-                if (playerHasCards == true)
+                else
                 {
-                    storedCardMemory = cardInfo.RemoveCard(storedCardMemory, Int32.Parse(playerSelectedCardTypeInput), Int32.Parse(playerSelectedCardSuitInput), true);
+                    MultiPlayerCardHandler(storedPlayerCardInput, playerSelectedCardTypeInput, playerSelectedCardSuitInput);
                 }
 
-
-                //Debug remove later
-                //Console.WriteLine("{0} {1} - {2}", playerSelectedCardTypeInput, playerSelectedCardSuitInput, playerHasCards);
-                //Console.ReadLine();
-
-
-                //Breaks while loop
-                if (playerHasCards == true) playerCardInputHandlerFinishedProcessing = true;
             }
 
-            return storedCardMemory;
+            //Informs player of invalid card input if exist
+            if (playerSelectedCardTypeInput == "000" || playerSelectedCardSuitInput == "000") InformPlayerOfInvalidCards(false);
+
+            //Verify player has inputed cards
+            bool playerHasCards = false;
+            if (playerSelectedCardTypeInput != "000" && playerSelectedCardSuitInput != "000") playerHasCards = cardInfo.HasCard(storedCardMemory, Int32.Parse(playerSelectedCardTypeInput), Int32.Parse(playerSelectedCardSuitInput), true);
+
+            //Removes card if player has inputed card
+            if (playerHasCards == true) storedCardMemory = cardInfo.RemoveCard(storedCardMemory, Int32.Parse(playerSelectedCardTypeInput), Int32.Parse(playerSelectedCardSuitInput), true);
+            if (playerHasCards == false) InformPlayerOfInvalidCards(true);
+
+            return storedCardMemory + playerHasCards.ToString();
+
         }
 
         private string GetPlayerCardTypeInput()
         {
             string playerSelectedCardTypeInput = "0";
 
-            Console.WriteLine("Input card type (E.G: 2, 4, Jack, Ace, Small Joker)");
+            Console.WriteLine("##---<<<----------<<< YOUR TURN >>> ---------->>>---##");
+
+            Console.WriteLine("Input card type (E.G: 2, 4, Jack, Ace, Small Joker, done)");
             Console.WriteLine(">");
 
             //Gets card type
@@ -345,6 +268,9 @@ namespace President_Card_Game
                     //14 will be set to 13 by the second method, it is used to differentiate between the two jokers
                     playerSelectedCardTypeInput = "14";
                     break;
+                case "done":
+                    playerSelectedCardTypeInput = "111";
+                    break;
                 default:
                     playerSelectedCardTypeInput = "000";
                     break;
@@ -358,7 +284,7 @@ namespace President_Card_Game
             string playerSelectedCardSuitInput = "0";
 
             //Get card suit if not the jokers
-            if (playerSelectedCardTypeInput != "13" && playerSelectedCardTypeInput != "14" && playerSelectedCardTypeInput != "000")
+            if (playerSelectedCardTypeInput != "13" && playerSelectedCardTypeInput != "14" && playerSelectedCardTypeInput != "000" && playerSelectedCardTypeInput != "111")
             {
                 Console.WriteLine("Input card suit (E.G: Hearts, Spades, Clubs, Diamonds)");
                 Console.WriteLine(">");
@@ -392,14 +318,42 @@ namespace President_Card_Game
             return playerSelectedCardSuitInput;
         }
 
-        private void InformPlayerOfInvalidCards()
+        private string MultiPlayerCardHandler(string storedPlayerCardInput, string cardTypeInput, string cardSuitInput)
         {
-            Console.WriteLine();
-            Console.WriteLine("**********************************");
-            Console.WriteLine("OI BLOODY MORON INPUT A VALID CARD");
-            Console.WriteLine();
-            Console.WriteLine("**********************************");
-            Console.WriteLine();
+            int cardType = Int32.Parse(cardTypeInput);
+            int cardSuit = Int32.Parse(cardSuitInput);
+
+            int checkPos = cardType * 4 + cardSuit;
+
+            string inputCardStringNew = storedPlayerCardInput.Substring(0, checkPos);
+            string inputCardStringNew2 = storedPlayerCardInput.Substring(checkPos + 1, 54 - checkPos - 1);
+
+            storedPlayerCardInput = inputCardStringNew + "1" + inputCardStringNew2;
+
+            return storedPlayerCardInput;
+        }
+
+        private void InformPlayerOfInvalidCards(bool validButNotExist)
+        {
+            if (validButNotExist == true)
+            {
+                Console.WriteLine();
+                Console.WriteLine("******************************************");
+                Console.WriteLine("You do not have the inputted card");
+                Console.WriteLine("Please verify your selection and try again");
+                Console.WriteLine();
+                Console.WriteLine("******************************************");
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("**********************************");
+                Console.WriteLine("OI BLOODY MORON INPUT A VALID CARD");
+                Console.WriteLine();
+                Console.WriteLine("**********************************");
+                Console.WriteLine();
+            }
 
             Console.ReadLine();
         }
@@ -448,389 +402,7 @@ namespace President_Card_Game
             Console.WriteLine();
             Console.WriteLine();
         }
-
-
-        //MISC
-        private static void CardTeamOrganizer(string inputCardString)
-        {
-            PlayerCards playerCards = new PlayerCards();
-            AICards aiCards = new AICards();
-            int referencedCardPos;
-            int referencedCardTarget;
-
-            for (int i = 0; i < 54; i++)
-            {
-                referencedCardPos = i;
-                string referencedCardValue = inputCardString.Substring(i, 1);
-
-                if (referencedCardValue == "0")
-                {
-                    referencedCardTarget = 0;
-                } else
-                {
-                    referencedCardTarget = 1;
-                }
-
-                //Code to assign true or falses to each team cards
-
-                if (referencedCardPos == 0) { if (referencedCardTarget == 0) { playerCards.TwoHearts = true; } else { aiCards.TwoHearts = true; } }
-                if (referencedCardPos == 1) { if (referencedCardTarget == 0) { playerCards.TwoSpades = true; } else { aiCards.TwoSpades = true; } }
-                if (referencedCardPos == 2) { if (referencedCardTarget == 0) { playerCards.TwoClubs = true; } else { aiCards.TwoClubs = true; } }
-                if (referencedCardPos == 3) { if (referencedCardTarget == 0) { playerCards.TwoDiamonds = true; } else { aiCards.TwoDiamonds = true; } }
-
-                if (referencedCardPos == 4) { if (referencedCardTarget == 0) { playerCards.ThreeHearts = true; } else { aiCards.ThreeHearts = true; } }
-                if (referencedCardPos == 5) { if (referencedCardTarget == 0) { playerCards.ThreeSpades = true; } else { aiCards.ThreeSpades = true; } }
-                if (referencedCardPos == 6) { if (referencedCardTarget == 0) { playerCards.ThreeClubs = true; } else { aiCards.ThreeClubs = true; } }
-                if (referencedCardPos == 7) { if (referencedCardTarget == 0) { playerCards.ThreeDiamonds = true; } else { aiCards.ThreeDiamonds = true; } }
-
-                if (referencedCardPos == 8) { if (referencedCardTarget == 0) { playerCards.FourHearts = true; } else { aiCards.FourHearts = true; } }
-                if (referencedCardPos == 9) { if (referencedCardTarget == 0) { playerCards.FourSpades = true; } else { aiCards.FourSpades = true; } }
-                if (referencedCardPos == 10) { if (referencedCardTarget == 0) { playerCards.FourClubs = true; } else { aiCards.FourClubs = true; } }
-                if (referencedCardPos == 11) { if (referencedCardTarget == 0) { playerCards.FourDiamonds = true; } else { aiCards.FourDiamonds = true; } }
-
-                if (referencedCardPos == 12) { if (referencedCardTarget == 0) { playerCards.FiveHearts = true; } else { aiCards.FiveHearts = true; } }
-                if (referencedCardPos == 13) { if (referencedCardTarget == 0) { playerCards.FiveSpades = true; } else { aiCards.FiveSpades = true; } }
-                if (referencedCardPos == 14) { if (referencedCardTarget == 0) { playerCards.FiveClubs = true; } else { aiCards.FiveClubs = true; } }
-                if (referencedCardPos == 15) { if (referencedCardTarget == 0) { playerCards.FiveDiamonds = true; } else { aiCards.FiveDiamonds = true; } }
-
-                if (referencedCardPos == 16) { if (referencedCardTarget == 0) { playerCards.SixHearts = true; } else { aiCards.SixHearts = true; } }
-                if (referencedCardPos == 17) { if (referencedCardTarget == 0) { playerCards.SixSpades = true; } else { aiCards.SixSpades = true; } }
-                if (referencedCardPos == 18) { if (referencedCardTarget == 0) { playerCards.SixClubs = true; } else { aiCards.SixClubs = true; } }
-                if (referencedCardPos == 19) { if (referencedCardTarget == 0) { playerCards.SixDiamonds = true; } else { aiCards.SixDiamonds = true; } }
-
-                if (referencedCardPos == 20) { if (referencedCardTarget == 0) { playerCards.SevenHearts = true; } else { aiCards.SevenHearts = true; } }
-                if (referencedCardPos == 21) { if (referencedCardTarget == 0) { playerCards.SevenSpades = true; } else { aiCards.SevenSpades = true; } }
-                if (referencedCardPos == 22) { if (referencedCardTarget == 0) { playerCards.SevenClubs = true; } else { aiCards.SevenClubs = true; } }
-                if (referencedCardPos == 23) { if (referencedCardTarget == 0) { playerCards.SevenDiamonds = true; } else { aiCards.SevenDiamonds = true; } }
-
-                if (referencedCardPos == 24) { if (referencedCardTarget == 0) { playerCards.EightHearts = true; } else { aiCards.EightHearts = true; } }
-                if (referencedCardPos == 25) { if (referencedCardTarget == 0) { playerCards.EightSpades = true; } else { aiCards.EightSpades = true; } }
-                if (referencedCardPos == 26) { if (referencedCardTarget == 0) { playerCards.EightClubs = true; } else { aiCards.EightClubs = true; } }
-                if (referencedCardPos == 27) { if (referencedCardTarget == 0) { playerCards.EightDiamonds = true; } else { aiCards.EightDiamonds = true; } }
-
-                if (referencedCardPos == 28) { if (referencedCardTarget == 0) { playerCards.NineHearts = true; } else { aiCards.NineHearts = true; } }
-                if (referencedCardPos == 29) { if (referencedCardTarget == 0) { playerCards.NineSpades = true; } else { aiCards.NineSpades = true; } }
-                if (referencedCardPos == 30) { if (referencedCardTarget == 0) { playerCards.NineClubs = true; } else { aiCards.NineClubs = true; } }
-                if (referencedCardPos == 31) { if (referencedCardTarget == 0) { playerCards.NineDiamonds = true; } else { aiCards.NineDiamonds = true; } }
-
-                if (referencedCardPos == 32) { if (referencedCardTarget == 0) { playerCards.TenHearts = true; } else { aiCards.TenHearts = true; } }
-                if (referencedCardPos == 33) { if (referencedCardTarget == 0) { playerCards.TenSpades = true; } else { aiCards.TenSpades = true; } }
-                if (referencedCardPos == 34) { if (referencedCardTarget == 0) { playerCards.TenClubs = true; } else { aiCards.TenClubs = true; } }
-                if (referencedCardPos == 35) { if (referencedCardTarget == 0) { playerCards.TenDiamonds = true; } else { aiCards.TenDiamonds = true; } }
-
-                if (referencedCardPos == 36) { if (referencedCardTarget == 0) { playerCards.JackHearts = true; } else { aiCards.JackHearts = true; } }
-                if (referencedCardPos == 37) { if (referencedCardTarget == 0) { playerCards.JackSpades = true; } else { aiCards.JackSpades = true; } }
-                if (referencedCardPos == 38) { if (referencedCardTarget == 0) { playerCards.JackClubs = true; } else { aiCards.JackClubs = true; } }
-                if (referencedCardPos == 39) { if (referencedCardTarget == 0) { playerCards.JackDiamonds = true; } else { aiCards.JackDiamonds = true; } }
-
-                if (referencedCardPos == 40) { if (referencedCardTarget == 0) { playerCards.QueenHearts = true; } else { aiCards.QueenHearts = true; } }
-                if (referencedCardPos == 41) { if (referencedCardTarget == 0) { playerCards.QueenSpades = true; } else { aiCards.QueenSpades = true; } }
-                if (referencedCardPos == 42) { if (referencedCardTarget == 0) { playerCards.QueenClubs = true; } else { aiCards.QueenClubs = true; } }
-                if (referencedCardPos == 43) { if (referencedCardTarget == 0) { playerCards.QueenDiamonds = true; } else { aiCards.QueenDiamonds = true; } }
-
-                if (referencedCardPos == 44) { if (referencedCardTarget == 0) { playerCards.KingHearts = true; } else { aiCards.KingHearts = true; } }
-                if (referencedCardPos == 45) { if (referencedCardTarget == 0) { playerCards.KingSpades = true; } else { aiCards.KingSpades = true; } }
-                if (referencedCardPos == 46) { if (referencedCardTarget == 0) { playerCards.KingClubs = true; } else { aiCards.KingClubs = true; } }
-                if (referencedCardPos == 47) { if (referencedCardTarget == 0) { playerCards.KingDiamonds = true; } else { aiCards.KingDiamonds = true; } }
-
-                if (referencedCardPos == 48) { if (referencedCardTarget == 0) { playerCards.AceHearts = true; } else { aiCards.AceHearts = true; } }
-                if (referencedCardPos == 49) { if (referencedCardTarget == 0) { playerCards.AceSpades = true; } else { aiCards.AceSpades = true; } }
-                if (referencedCardPos == 50) { if (referencedCardTarget == 0) { playerCards.AceClubs = true; } else { aiCards.AceClubs = true; } }
-                if (referencedCardPos == 51) { if (referencedCardTarget == 0) { playerCards.AceDiamonds = true; } else { aiCards.AceDiamonds = true; } }
-
-                if (referencedCardPos == 52) { if (referencedCardTarget == 0) { playerCards.JokerOne = true; } else { aiCards.JokerOne = true; } }
-                if (referencedCardPos == 53) { if (referencedCardTarget == 0) { playerCards.JokerTwo = true; } else { aiCards.JokerTwo = true; } }
-            }
-        }
-        //Card organizer is depreciated until I am smart enough to figure out how to return a class value to the main scope
-    }
-
-
-
-    public class PlayerCards
-    {
-        public bool TwoHearts { get; set; }
-        public bool TwoSpades { get; set; }
-        public bool TwoClubs { get; set; }
-        public bool TwoDiamonds { get; set; }
-
-        public bool ThreeHearts { get; set; }
-        public bool ThreeSpades { get; set; }
-        public bool ThreeClubs { get; set; }
-        public bool ThreeDiamonds { get; set; }
-
-        public bool FourHearts { get; set; }
-        public bool FourSpades { get; set; }
-        public bool FourClubs { get; set; }
-        public bool FourDiamonds { get; set; }
-
-        public bool FiveHearts { get; set; }
-        public bool FiveSpades { get; set; }
-        public bool FiveClubs { get; set; }
-        public bool FiveDiamonds { get; set; }
-
-        public bool SixHearts { get; set; }
-        public bool SixSpades { get; set; }
-        public bool SixClubs { get; set; }
-        public bool SixDiamonds { get; set; }
-
-        public bool SevenHearts { get; set; }
-        public bool SevenSpades { get; set; }
-        public bool SevenClubs { get; set; }
-        public bool SevenDiamonds { get; set; }
-
-        public bool EightHearts { get; set; }
-        public bool EightSpades { get; set; }
-        public bool EightClubs { get; set; }
-        public bool EightDiamonds { get; set; }
-
-        public bool NineHearts { get; set; }
-        public bool NineSpades { get; set; }
-        public bool NineClubs { get; set; }
-        public bool NineDiamonds { get; set; }
-
-        public bool TenHearts { get; set; }
-        public bool TenSpades { get; set; }
-        public bool TenClubs { get; set; }
-        public bool TenDiamonds { get; set; }
-
-        public bool JackHearts { get; set; }
-        public bool JackSpades { get; set; }
-        public bool JackClubs { get; set; }
-        public bool JackDiamonds { get; set; }
-
-        public bool QueenHearts { get; set; }
-        public bool QueenSpades { get; set; }
-        public bool QueenClubs { get; set; }
-        public bool QueenDiamonds { get; set; }
-
-        public bool KingHearts { get; set; }
-        public bool KingSpades { get; set; }
-        public bool KingClubs { get; set; }
-        public bool KingDiamonds { get; set; }
-
-        public bool AceHearts { get; set; }
-        public bool AceSpades { get; set; }
-        public bool AceClubs { get; set; }
-        public bool AceDiamonds { get; set; }
-
-        public bool JokerOne { get; set; }
-        public bool JokerTwo { get; set; }
-
-        public PlayerCards()
-        {
-            this.TwoHearts = false;
-            this.TwoSpades = false;
-            this.TwoClubs = false;
-            this.TwoDiamonds = false;
-
-            this.ThreeHearts = false;
-            this.ThreeSpades = false;
-            this.ThreeClubs = false;
-            this.ThreeDiamonds = false;
-
-            this.FourHearts = false;
-            this.FourSpades = false;
-            this.FourClubs = false;
-            this.FourDiamonds = false;
-
-            this.FiveHearts = false;
-            this.FiveSpades = false;
-            this.FiveClubs = false;
-            this.FiveDiamonds = false;
-
-            this.SixHearts = false;
-            this.SixSpades = false;
-            this.SixClubs = false;
-            this.SixDiamonds = false;
-
-            this.SevenHearts = false;
-            this.SevenSpades = false;
-            this.SevenClubs = false;
-            this.SevenDiamonds = false;
-
-            this.EightHearts = false;
-            this.EightSpades = false;
-            this.EightClubs = false;
-            this.EightDiamonds = false;
-
-            this.NineHearts = false;
-            this.NineSpades = false;
-            this.NineClubs = false;
-            this.NineDiamonds = false;
-
-            this.TenHearts = false;
-            this.TenSpades = false;
-            this.TenClubs = false;
-            this.TenDiamonds = false;
-
-            this.JackHearts = false;
-            this.JackSpades = false;
-            this.JackClubs = false;
-            this.JackDiamonds = false;
-
-            this.QueenHearts = false;
-            this.QueenSpades = false;
-            this.QueenClubs = false;
-            this.QueenDiamonds = false;
-
-            this.KingHearts = false;
-            this.KingSpades = false;
-            this.KingClubs = false;
-            this.KingDiamonds = false;
-
-            this.AceHearts = false;
-            this.AceSpades = false;
-            this.AceClubs = false;
-            this.AceDiamonds = false;
-
-            this.JokerOne = false;
-            this.JokerTwo = false;
-        }
-
-    }
-
-    public class AICards
-    {
-        public bool TwoHearts { get; set; }
-        public bool TwoSpades { get; set; }
-        public bool TwoClubs { get; set; }
-        public bool TwoDiamonds { get; set; }
-
-        public bool ThreeHearts { get; set; }
-        public bool ThreeSpades { get; set; }
-        public bool ThreeClubs { get; set; }
-        public bool ThreeDiamonds { get; set; }
-
-        public bool FourHearts { get; set; }
-        public bool FourSpades { get; set; }
-        public bool FourClubs { get; set; }
-        public bool FourDiamonds { get; set; }
-
-        public bool FiveHearts { get; set; }
-        public bool FiveSpades { get; set; }
-        public bool FiveClubs { get; set; }
-        public bool FiveDiamonds { get; set; }
-
-        public bool SixHearts { get; set; }
-        public bool SixSpades { get; set; }
-        public bool SixClubs { get; set; }
-        public bool SixDiamonds { get; set; }
-
-        public bool SevenHearts { get; set; }
-        public bool SevenSpades { get; set; }
-        public bool SevenClubs { get; set; }
-        public bool SevenDiamonds { get; set; }
-
-        public bool EightHearts { get; set; }
-        public bool EightSpades { get; set; }
-        public bool EightClubs { get; set; }
-        public bool EightDiamonds { get; set; }
-
-        public bool NineHearts { get; set; }
-        public bool NineSpades { get; set; }
-        public bool NineClubs { get; set; }
-        public bool NineDiamonds { get; set; }
-
-        public bool TenHearts { get; set; }
-        public bool TenSpades { get; set; }
-        public bool TenClubs { get; set; }
-        public bool TenDiamonds { get; set; }
-
-        public bool JackHearts { get; set; }
-        public bool JackSpades { get; set; }
-        public bool JackClubs { get; set; }
-        public bool JackDiamonds { get; set; }
-
-        public bool QueenHearts { get; set; }
-        public bool QueenSpades { get; set; }
-        public bool QueenClubs { get; set; }
-        public bool QueenDiamonds { get; set; }
-
-        public bool KingHearts { get; set; }
-        public bool KingSpades { get; set; }
-        public bool KingClubs { get; set; }
-        public bool KingDiamonds { get; set; }
-
-        public bool AceHearts { get; set; }
-        public bool AceSpades { get; set; }
-        public bool AceClubs { get; set; }
-        public bool AceDiamonds { get; set; }
-
-        public bool JokerOne { get; set; }
-        public bool JokerTwo { get; set; }
-
-        public AICards()
-        {
-            this.TwoHearts = false;
-            this.TwoSpades = false;
-            this.TwoClubs = false;
-            this.TwoDiamonds = false;
-
-            this.ThreeHearts = false;
-            this.ThreeSpades = false;
-            this.ThreeClubs = false;
-            this.ThreeDiamonds = false;
-
-            this.FourHearts = false;
-            this.FourSpades = false;
-            this.FourClubs = false;
-            this.FourDiamonds = false;
-
-            this.FiveHearts = false;
-            this.FiveSpades = false;
-            this.FiveClubs = false;
-            this.FiveDiamonds = false;
-
-            this.SixHearts = false;
-            this.SixSpades = false;
-            this.SixClubs = false;
-            this.SixDiamonds = false;
-
-            this.SevenHearts = false;
-            this.SevenSpades = false;
-            this.SevenClubs = false;
-            this.SevenDiamonds = false;
-
-            this.EightHearts = false;
-            this.EightSpades = false;
-            this.EightClubs = false;
-            this.EightDiamonds = false;
-
-            this.NineHearts = false;
-            this.NineSpades = false;
-            this.NineClubs = false;
-            this.NineDiamonds = false;
-
-            this.TenHearts = false;
-            this.TenSpades = false;
-            this.TenClubs = false;
-            this.TenDiamonds = false;
-
-            this.JackHearts = false;
-            this.JackSpades = false;
-            this.JackClubs = false;
-            this.JackDiamonds = false;
-
-            this.QueenHearts = false;
-            this.QueenSpades = false;
-            this.QueenClubs = false;
-            this.QueenDiamonds = false;
-
-            this.KingHearts = false;
-            this.KingSpades = false;
-            this.KingClubs = false;
-            this.KingDiamonds = false;
-
-            this.AceHearts = false;
-            this.AceSpades = false;
-            this.AceClubs = false;
-            this.AceDiamonds = false;
-
-            this.JokerOne = false;
-            this.JokerTwo = false;
-        }
-
+        
     }
 
 }

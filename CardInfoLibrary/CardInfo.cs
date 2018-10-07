@@ -172,8 +172,6 @@ namespace CardInformation
                     }
                     else if (isPlayer == false && tempNewStoredCardString == "3")
                     {
-                        Console.WriteLine("COh no somethign has gone terribly wrong in cardinfo getlastcards");
-
                         return StringPosToCard(checkPos);
                     }
                 }
