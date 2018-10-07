@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CardInformation;
 
 namespace President_Card_Game
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             CardInfo cardInfo = new CardInfo();
@@ -124,7 +119,7 @@ namespace President_Card_Game
             //Decides which player goes first, Player or AI
             CardInfo cardInfo = new CardInfo();
 
-            if (cardInfo.HasCard(inputCardString, 1, 1, true) == true)
+            if (cardInfo.HasCardSingular(inputCardString, 1, 1, true) == true)
             {
                 return true;
                 //Player starts first
@@ -142,7 +137,6 @@ namespace President_Card_Game
             while (playerCardInputHandlerFinishedProcessing == false)
             {
                 Console.Clear();
-
                 CardInfo cardInfo = new CardInfo();
 
                 //Print player cards + last turn
@@ -168,8 +162,7 @@ namespace President_Card_Game
             string playerSelectedCardTypeInput = "";
             string playerSelectedCardSuitInput = "";
 
-            string storedPlayerCardInput = "000000000000000000000000000000000000000000000000000000";
-
+            string storedPlayerCardInput = "222222222222222222222222222222222222222222222222222222";
 
             bool quit = false;
             //Get player card choice input
@@ -181,30 +174,29 @@ namespace President_Card_Game
                 //14 is used to differentiate between large and small joker, 13 is large, 14 is small. 14 is used here so the method can return one value instead of two
                 if (playerSelectedCardTypeInput == "14") playerSelectedCardTypeInput = "13";
 
-                if (playerSelectedCardTypeInput == "111")
+                if (playerSelectedCardTypeInput == "111" || playerSelectedCardTypeInput == "000")
                 {
                     quit = true;
                 }
                 else
                 {
-                    MultiPlayerCardHandler(storedPlayerCardInput, playerSelectedCardTypeInput, playerSelectedCardSuitInput);
+                    storedPlayerCardInput = MultiPlayerCardHandler(storedPlayerCardInput, playerSelectedCardTypeInput, playerSelectedCardSuitInput);
                 }
 
             }
 
             //Informs player of invalid card input if exist
-            if (playerSelectedCardTypeInput == "000" || playerSelectedCardSuitInput == "000") InformPlayerOfInvalidCards(false);
+            if (playerSelectedCardTypeInput == "000") InformPlayerOfInvalidCards(false);
 
             //Verify player has inputed cards
             bool playerHasCards = false;
-            if (playerSelectedCardTypeInput != "000" && playerSelectedCardSuitInput != "000") playerHasCards = cardInfo.HasCard(storedCardMemory, Int32.Parse(playerSelectedCardTypeInput), Int32.Parse(playerSelectedCardSuitInput), true);
+            if (playerSelectedCardTypeInput != "000") playerHasCards = cardInfo.HasCard(storedCardMemory, storedPlayerCardInput, true);
 
-            //Removes card if player has inputed card
-            if (playerHasCards == true) storedCardMemory = cardInfo.RemoveCard(storedCardMemory, Int32.Parse(playerSelectedCardTypeInput), Int32.Parse(playerSelectedCardSuitInput), true);
-            if (playerHasCards == false) InformPlayerOfInvalidCards(true);
+            //Removes cards if player has inputted cards
+            if (playerHasCards == true) storedCardMemory = cardInfo.RemoveCards(storedCardMemory, storedPlayerCardInput, true);
+            if (playerHasCards == false && playerSelectedCardTypeInput == "111") InformPlayerOfInvalidCards(true);
 
             return storedCardMemory + playerHasCards.ToString();
-
         }
 
         private string GetPlayerCardTypeInput()
@@ -328,7 +320,7 @@ namespace President_Card_Game
             string inputCardStringNew = storedPlayerCardInput.Substring(0, checkPos);
             string inputCardStringNew2 = storedPlayerCardInput.Substring(checkPos + 1, 54 - checkPos - 1);
 
-            storedPlayerCardInput = inputCardStringNew + "1" + inputCardStringNew2;
+            storedPlayerCardInput = inputCardStringNew + "0" + inputCardStringNew2;
 
             return storedPlayerCardInput;
         }
@@ -339,7 +331,7 @@ namespace President_Card_Game
             {
                 Console.WriteLine();
                 Console.WriteLine("******************************************");
-                Console.WriteLine("You do not have the inputted card");
+                Console.WriteLine("You do not have the inputted card(s)");
                 Console.WriteLine("Please verify your selection and try again");
                 Console.WriteLine();
                 Console.WriteLine("******************************************");
