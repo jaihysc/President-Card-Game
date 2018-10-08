@@ -60,7 +60,7 @@ namespace President_Card_Game
                     newStoredCardMemory = cardProcessing.PlayerCardInputHandler(storedCardMemory, turnNumber, playerLastCard, aiLastCard);
                 } else
                 {
-
+                    //Ai code
                 }
 
                 playerLastCard = cardInfo.GetLastCard(storedCardMemory, newStoredCardMemory, true);
@@ -136,21 +136,24 @@ namespace President_Card_Game
             bool playerCardInputHandlerFinishedProcessing = false;
             while (playerCardInputHandlerFinishedProcessing == false)
             {
-                Console.Clear();
-                CardInfo cardInfo = new CardInfo();
-
                 //Print player cards + last turn
                 PrintPlayerCardsToScreen(storedCardMemory);
                 PrintLastPlayedCardsToScreen(playerLastCard, aiLastCard, turnNumber);
 
                 //Processes card input
                 string newStoredCardMemory = PlayerCardInput(storedCardMemory);
-                storedCardMemory = newStoredCardMemory.Substring(0, 54);
-                string playerHasCards = newStoredCardMemory.Substring(54, newStoredCardMemory.Length - 54);
+
+                bool playerHasCards = false;
+                if (newStoredCardMemory != "false")
+                {
+                    storedCardMemory = newStoredCardMemory;
+                    playerHasCards = true;
+                }
+
 
 
                 //Breaks while loop
-                if (playerHasCards == "True") playerCardInputHandlerFinishedProcessing = true;
+                if (playerHasCards == true) playerCardInputHandlerFinishedProcessing = true;
             }
 
             return storedCardMemory;
@@ -174,7 +177,7 @@ namespace President_Card_Game
                 //14 is used to differentiate between large and small joker, 13 is large, 14 is small. 14 is used here so the method can return one value instead of two
                 if (playerSelectedCardTypeInput == "14") playerSelectedCardTypeInput = "13";
 
-                if (playerSelectedCardTypeInput == "111" || playerSelectedCardTypeInput == "000")
+                if (playerSelectedCardTypeInput == "111" || playerSelectedCardTypeInput == "000" || playerSelectedCardSuitInput == "000")
                 {
                     quit = true;
                 }
@@ -185,18 +188,24 @@ namespace President_Card_Game
 
             }
 
-            //Informs player of invalid card input if exist
-            if (playerSelectedCardTypeInput == "000") InformPlayerOfInvalidCards(false);
-
             //Verify player has inputed cards
             bool playerHasCards = false;
-            if (playerSelectedCardTypeInput != "000") playerHasCards = cardInfo.HasCard(storedCardMemory, storedPlayerCardInput, true);
+            if (playerSelectedCardTypeInput != "000" && playerSelectedCardSuitInput != "000") playerHasCards = cardInfo.HasCard(storedCardMemory, storedPlayerCardInput, true);
 
             //Removes cards if player has inputted cards
             if (playerHasCards == true) storedCardMemory = cardInfo.RemoveCards(storedCardMemory, storedPlayerCardInput, true);
+
+            //Informs player of invalid or non existant cards 
+            if (playerSelectedCardTypeInput == "000" || playerSelectedCardSuitInput == "000") InformPlayerOfInvalidCards(false);
             if (playerHasCards == false && playerSelectedCardTypeInput == "111") InformPlayerOfInvalidCards(true);
 
-            return storedCardMemory + playerHasCards.ToString();
+            if (playerHasCards == true)
+            {
+                return storedCardMemory;
+            } else
+            {
+                return "false";
+            }
         }
 
         private string GetPlayerCardTypeInput()
@@ -205,7 +214,7 @@ namespace President_Card_Game
 
             Console.WriteLine("##---<<<----------<<< YOUR TURN >>> ---------->>>---##");
 
-            Console.WriteLine("Input card type (E.G: 2, 4, Jack, Ace, Small Joker, done)");
+            Console.WriteLine("Input card type (E.G: 2, 4, Jack, Ace, Small Joker)  Input \"done\" to quit");
             Console.WriteLine(">");
 
             //Gets card type
@@ -353,6 +362,7 @@ namespace President_Card_Game
         private void PrintPlayerCardsToScreen(string storedCardMemory)
         {
             CardInfo cardInfo = new CardInfo();
+            Console.Clear();
             cardInfo.PrintPlayerCards(storedCardMemory);
         }
 

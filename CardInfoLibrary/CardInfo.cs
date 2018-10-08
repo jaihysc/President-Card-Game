@@ -215,7 +215,7 @@ namespace CardInformation
         public string RemoveCards(string storedCardString, string inputPlayerCardString, bool isPlayer)
         {
             int checkPos = 0;
-            string newStoredCardString = "";
+            string newStoredCardString = storedCardString;
 
             bool quit = false;
             while (quit == false)
@@ -227,7 +227,7 @@ namespace CardInformation
                 {
                     if (isPlayer == true && tempPlayerCardString == "0")
                     {
-                        newStoredCardString = storedCardString.Substring(0, checkPos) + "2" + storedCardString.Substring(checkPos + 1, 53 - checkPos);
+                        newStoredCardString = newStoredCardString.Substring(0, checkPos) + "2" + newStoredCardString.Substring(checkPos + 1, 53 - checkPos);
                     }
                 }
 
@@ -242,6 +242,7 @@ namespace CardInformation
         {
             bool quit = false;
             int checkPos = 0;
+            string lastCards = "";
 
             while (quit == false)
             {
@@ -253,11 +254,11 @@ namespace CardInformation
                 {
                     if (isPlayer == true && tempNewStoredCardString == "2")
                     {
-                        return StringPosToCard(checkPos);
+                        lastCards += StringPosToCard(checkPos);
                     }
                     else if (isPlayer == false && tempNewStoredCardString == "3")
                     {
-                        return StringPosToCard(checkPos);
+                        lastCards += StringPosToCard(checkPos);
                     }
                 }
 
@@ -266,7 +267,14 @@ namespace CardInformation
                 checkPos++;
             }
 
-            return "N/A";
+            if (lastCards == "")
+            {
+                return "N/A";
+            }
+            else
+            {
+                return lastCards;
+            }
         }
 
         public string StringPosToCard(int inputCardPos)
@@ -320,7 +328,7 @@ namespace CardInformation
                 cardType = (inputCardPos - 3) / 4;
             }
 
-            return cardTypes[cardType] + " - " + cardSuit;
+            return cardTypes[cardType] + "-" + cardSuit + " ";
         }
 
         public bool PlayedCardTurnProcessing()
